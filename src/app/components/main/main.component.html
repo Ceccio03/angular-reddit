@@ -1,4 +1,4 @@
-<div>
+<div *ngFor="let post of postData" class="post-container">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error numquam ullam odio quod autem cum tenetur voluptatum rerum hic adipisci iste natus, ab, odit quisquam ipsum distinctio eum, dignissimos repellendus!</p>
-    <app-post-card></app-post-card>
+    <app-post-card [postData]="post"></app-post-card>
 </div>

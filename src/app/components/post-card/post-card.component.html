@@ -1,5 +1,8 @@
-<div *ngFor="let post of postData" class="card">
-    <div >
-        <h3>{{postData?.name}}</h3>
+<div *ngIf="postData" class="card">
+    <img src="{{postData.thumbnail}}" alt="">
+    <div class="card-text">
+        <h3>{{postData.title}}</h3>
+        <h4>{{postData.author}}</h4>
+        <h5>{{postData.created}}</h5>
     </div>
 </div>
