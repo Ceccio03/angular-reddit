@@ -11,7 +11,6 @@ export class PostCardComponent {
   @Input() postArray?:Post;
   @Output() removed = new EventEmitter<Post>();
   @Output() faved = new EventEmitter<Post>();
-postData: any;
 
   removePost(){
     this.removed.emit(this.postArray);
