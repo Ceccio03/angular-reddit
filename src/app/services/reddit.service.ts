@@ -4,12 +4,12 @@ import { Post } from '../model/post';
 @Injectable({
   providedIn: 'root'
 })
-export class ConnectionService {
+export class RedditService {
 
   constructor() { }
 
-  getPosts():Promise <void | Post[]> {
-    return fetch('https://www.reddit.com/r/aww/new.json')
+  getPosts():Promise <Post[]> {
+    return fetch('https://www.reddit.com/r/Eldenring/new.json')
     .then(resp => resp.json())
     .then(redditObj => redditObj.data)
     .then(data => data.children)

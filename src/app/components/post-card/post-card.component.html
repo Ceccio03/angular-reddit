@@ -1,8 +1,11 @@
 <div *ngIf="postData" class="card">
-    <img src="{{postData.thumbnail}}" alt="">
-    <div class="card-text">
-        <h3>{{postData.title}}</h3>
-        <h4>{{postData.author}}</h4>
-        <h5>{{postData.created}}</h5>
-    </div>
+    <span >{{ post.title }} </span>
+    <span >Autore del post: u/{{ post.author }}</span>
+    <span >ID del post: {{ post.id }}</span>
+    <span >Creato in data {{ post.created }}</span>
+    <span *ngIf="post.thumbnail !== undefined && post.thumbnail !== null">
+        <img  class="card-img" src="{{ post.thumbnail }}">
+    </span>
+    <button (click)="addToFav()">Salva nei preferiti</button>
+    <button (click)="removePost()">Rimuovi il post dall'elenco</button>
 </div>

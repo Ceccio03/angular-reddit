@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from 'src/app/model/post';
-import { ConnectionService } from 'src/app/services/connection.service';
-import { DataService } from 'src/app/services/data.service';
+import { RedditService } from 'src/app/services/reddit.service';
 
 @Component({
   selector: 'app-main',
@@ -9,23 +8,20 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  postData:Post[] = [];
-  favArray:Post[] = [];
+  @Input() postArray:Post[] = [];
+  @Input() favArray:Post[] = [];
 
-  constructor(private connServ:ConnectionService, private dataServ:DataService) {}
-
-  async ngOnInit(): Promise<void> {
-    try {
-      this.favArray = this.dataServ.load('favArray') || [];
-      const posts = await this.connServ.getPosts();
-      this.postData = posts;
-    } catch (error) {
-      console.error('Errore nella chiamata HTTP:', error);
-    }
+  constructor(reddit: RedditService) {
+    reddit.getPosts().then((posts) => (this.postArray = posts))
   }
 
-  addFav(post:Post) {
+  removePost(post: Post): void {
+    this.postArray = this.postArray.filter(p => p.id !== post.id);
+    console.log(this.postArray);
+    console.log('Post rimosso', this.postArray);
+  }
+
+  addFav(post:Post): void {
     this.favArray.push(post);
-    this.dataServ.save('favArray', this.favArray);
   }
 }
