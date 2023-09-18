@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
-import { FavouriteComponent } from './components/favourite/favourite.component';
+import { FavComponent } from './components/fav/fav.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { FavouriteComponent } from './components/favourite/favourite.component';
     FooterComponent,
     MainComponent,
     PostCardComponent,
-    FavouriteComponent
+    FavComponent
   ],
   imports: [
     BrowserModule,

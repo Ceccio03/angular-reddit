@@ -4,5 +4,5 @@ export interface Post {
     created:Date;
     title: string;
     thumbnail: string;
-    url: string;
+    imageUrl: string;
 }

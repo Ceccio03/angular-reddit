@@ -21,7 +21,7 @@ export class MainComponent {
     console.log('Post rimosso', this.postArray);
   }
 
-  addFav(post:Post): void {
+  addToFav(post:Post): void {
     this.favArray.push(post);
   }
 }
